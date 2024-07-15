@@ -1,2 +1,5 @@
-package MineSweeper;public class cellState {
+package MineSweeper;
+
+public enum cellState {
+    Flag, Hide, Bomb, Explosion, Number, Empty;
 }

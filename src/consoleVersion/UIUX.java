@@ -1,3 +1,5 @@
+package consoleVersion;
+
 import MineSweeper.Cell;
 import MineSweeper.cellState;
 

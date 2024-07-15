@@ -10,28 +10,24 @@ public class Cell {
         hide = true;
     }
 
-    public void numPluser(){
-        bombAround++;
-    }
-
     public void plantBomb(){
         bomb = true;
         bombAround = 0;
     }
 
-    public char cellState(){
+    public cellState cellState(){
         if (flag)
-            return 'F';
+            return cellState.Flag;
         else if (hide)
-            return 'H';
+            return cellState.Hide;
         else if (explosion)
-            return 'X';
+            return cellState.Explosion;
         else if (bomb)
-            return 'B';
+            return cellState.Bomb;
         else if (bombAround > 0)
-            return 'N';
+            return cellState.Number;
         else{
-            return 'E';
+            return cellState.Empty;
         }
     }
 }

@@ -2,28 +2,27 @@ package MineSweeper;
 
 import java.util.Random;
 
-//::::::::::::::::::::::::::::::::::::GAME:::::::::::::::::::::::::::::::::::::::::
 public class Game {
     Random random = new Random();
     int j, i, bombNumber;
     public Cell[][] cell;
 
     //----------------------------------------
-    public Game(String difficulty){
+    public Game(Difficulty difficulty){
         switch (difficulty){
-            case "Easy":
+            case Easy:
                 i = j = 9;
                 bombNumber = 10;
                 break;
-            case "Medium":
+            case Medium:
                 i = j = 18;
                 bombNumber = 40;
                 break;
-            case "Hard":
+            case Hard:
                 i = j = 60;
                 bombNumber = 99;
                 break;
-            case "JustLikeLivingInIran":
+            case JustLikeLivingInIran:
                 i = j = 70;
                 bombNumber = 127;
                 break;
@@ -41,10 +40,30 @@ public class Game {
         }
     }
 
-    private void cellMaker(){
+    private void cellMaker () {
         for (int row = 0 ; row < j ; row++){
             for (int col = 0; col < i; col++){
                 cell[row][col] = new Cell();
+            }
+        }
+    }
+
+    private void tableMaker () {
+        int row, col, bombCounter = 0;
+        while (bombCounter < bombNumber){
+            row = random.nextInt(j);
+            col = random.nextInt(i);
+            if(!cell[row][col].bomb) {
+                cell[row][col].plantBomb();
+                bombCounter++;
+            }
+        }
+
+        for(row = 0; row < j; row++){
+            for(col = 0; col < i; col++){
+                if(!cell[row][col].bomb){
+                    putNumber(row,col);
+                }
             }
         }
     }
@@ -76,28 +95,8 @@ public class Game {
         }
     }
 
-    private void tableMaker (){
-        int row, col, bombCounter = 0;
-        while (bombCounter < bombNumber){
-            row = random.nextInt(j);
-            col = random.nextInt(i);
-            if(!cell[row][col].bomb) {
-                cell[row][col].plantBomb();
-                bombCounter++;
-            }
-        }
-
-        for(row = 0; row < j; row++){
-            for(col = 0; col < i; col++){
-                if(!cell[row][col].bomb){
-                    putNumber(row,col);
-                }
-            }
-        }
-    }
-
     public boolean click (int row, int col){
-        if(cell[row][col].flag || cell[row][col].cellState() == 'E'){
+        if(cell[row][col].flag || cell[row][col].cellState() == cellState.Empty){
             return false;
         }
         else if (cell[row][col].bomb) {
@@ -105,7 +104,7 @@ public class Game {
             visibleAll();
             return true;
         }
-        else {
+        else {                      //hide && (empty || number)
             unHider(row,col);
             return true;
         }
@@ -136,15 +135,15 @@ public class Game {
         if (cell[row][col].bombAround > 0 ) {
             return;
         }
-        if(cell[row][col].cellState() == 'E')
+        if(cell[row][col].cellState() == cellState.Empty)
         {
             for(int subRow = rowStart; subRow <= rowEnd; subRow++){
                 for(int subCol = colStart; subCol <= colEnd; subCol++){
-                    if(cell[subRow][subCol].cellState() == 'H')
+                    if(cell[subRow][subCol].cellState() == cellState.Hide)
                         unHider(subRow,subCol);
                 }
             }
         }
-        //return true;
+
     }
 }

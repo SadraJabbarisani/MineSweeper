@@ -1,3 +1,5 @@
+package consoleVersion;
+
 import MineSweeper.Difficulty;
 import MineSweeper.Game;
 
