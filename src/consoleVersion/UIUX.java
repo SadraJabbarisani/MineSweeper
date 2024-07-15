@@ -1,4 +1,5 @@
 import MineSweeper.Cell;
+import MineSweeper.cellState;
 
 public class UIUX {
 
@@ -38,7 +39,7 @@ public class UIUX {
         for(int row = 0; row<9; row++){
             System.out.print("|    "+ (row+1) +"| ");
             for(int col = 0; col < 9; col++){
-                if (cell[row][col].cellState() == 'N'){
+                if (cell[row][col].cellState() == cellState.Number){
                     switch (cell[row][col].bombAround){
                         case 1:
                             System.out.print("1️⃣");
@@ -72,19 +73,19 @@ public class UIUX {
                 else {
                     switch (cell[row][col].cellState())
                     {
-                        case 'F':
+                        case Flag:
                             System.out.print("🚩");
                             break;
-                        case 'H':
+                        case Hide:
                             System.out.print("⬜");
                             break;
-                        case 'B':
+                        case Bomb:
                             System.out.print("💣");
                             break;
-                        case 'X':
+                        case Explosion:
                             System.out.print("💥");
                             break;
-                        case 'E':
+                        case Empty:
                             System.out.print("🔳");
                             break;
                     }
