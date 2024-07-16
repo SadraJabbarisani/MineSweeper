@@ -146,4 +146,13 @@ public class Game {
         }
 
     }
+
+    public boolean putFlag(int row, int col){
+        if (cell[row][col].cellState() != cellState.Hide){
+            return false;
+        }else{
+            cell[row][col].flag = true;
+            return true;
+        }
+    }
 }
