@@ -4,7 +4,8 @@ import java.util.Random;
 
 public class Game {
     Random random = new Random();
-    int j, i, bombNumber;
+    public int j, i;
+    int bombNumber;
     public Cell[][] cell;
 
     //----------------------------------------
