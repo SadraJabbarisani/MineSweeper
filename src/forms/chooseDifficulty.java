@@ -50,7 +50,7 @@ public class chooseDifficulty extends javax.swing.JFrame {
 
         JustLikeLivingInIranBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         JustLikeLivingInIranBtn.setForeground(new java.awt.Color(153, 0, 153));
-        JustLikeLivingInIranBtn.setText("JustLikeLivingInIran");
+        JustLikeLivingInIranBtn.setText("Just Like Living In Iran");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
