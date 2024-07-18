@@ -30,6 +30,11 @@ public class chooseDifficulty extends javax.swing.JFrame {
         easyBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         easyBtn.setForeground(new java.awt.Color(0, 204, 51));
         easyBtn.setText("Easy");
+        easyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                easyBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,6 +106,11 @@ public class chooseDifficulty extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void easyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyBtnActionPerformed
+        new EasyMode().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_easyBtnActionPerformed
 
     public static void main(String args[]) {
         
