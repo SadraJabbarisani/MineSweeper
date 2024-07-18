@@ -3,7 +3,7 @@ package MineSweeper;
 //::::::::::::::::::::::::::::::::::::CELL:::::::::::::::::::::::::::::::::::::::::
 public class Cell {
     boolean bomb, flag, hide, explosion;
-    public byte bombAround;
+    public int bombAround;
     //----------------------------------------
     public Cell(){
         flag = false;

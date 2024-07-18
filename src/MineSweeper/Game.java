@@ -5,7 +5,7 @@ import java.util.Random;
 public class Game {
     Random random = new Random();
     public int j, i;
-    int bombNumber;
+    public int bombNumber, leftFlagNumber;;
     public Cell[][] cell;
 
     //----------------------------------------
@@ -28,6 +28,7 @@ public class Game {
                 bombNumber = 127;
                 break;
         }
+        leftFlagNumber = bombNumber;
         cell = new Cell[j][i];
         cellMaker();
         tableMaker();
@@ -149,11 +150,38 @@ public class Game {
     }
 
     public boolean putFlag(int row, int col){
-        if (cell[row][col].cellState() != cellState.Hide){
-            return false;
-        }else{
+        if (cell[row][col].cellState() == cellState.Hide && leftFlagNumber > 0){
             cell[row][col].flag = true;
+            leftFlagNumber--;
             return true;
+        }else if (cell[row][col].cellState() == cellState.Flag){
+            cell[row][col].flag = false;
+            leftFlagNumber++;
+            return true;
+        }else{
+            return false;
         }
+    }
+    
+    public boolean isWin(){
+        for (Cell[] row : cell){
+            for (Cell col : row){
+                if (col.cellState() == cellState.Hide){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public boolean isLoose(){
+        for (Cell[] row : cell){
+            for (Cell col : row){
+                if (col.explosion != false){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
