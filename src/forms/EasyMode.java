@@ -115,6 +115,10 @@ public class EasyMode extends javax.swing.JFrame {
                                 loseLbl.show(true);
                                 System.out.println("lost");
                             }else if(game.isWin()){
+                                YouWon yw = new YouWon();
+                                yw.setLables(Difficulty.Easy);
+                                yw.setVisible(true);
+                                dispose();
                                 System.out.println("win!");
                             }
                         }
@@ -126,6 +130,10 @@ public class EasyMode extends javax.swing.JFrame {
                                 
                             
                             if(game.isWin()){
+                                YouWon yw = new YouWon();
+                                yw.setLables(Difficulty.Easy);
+                                yw.setVisible(true);
+                                dispose();
                                 System.out.println("win!");
                             }
                         }
@@ -145,7 +153,7 @@ public class EasyMode extends javax.swing.JFrame {
 
         backGroundPnl = new javax.swing.JPanel();
         boardPnl = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Mine_Sweeper_Lable = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         retryBtn = new javax.swing.JButton();
         loseLbl = new javax.swing.JLabel();
@@ -169,9 +177,9 @@ public class EasyMode extends javax.swing.JFrame {
             .addGap(0, 334, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Mine Sweeper");
+        Mine_Sweeper_Lable.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Mine_Sweeper_Lable.setForeground(new java.awt.Color(204, 204, 204));
+        Mine_Sweeper_Lable.setText("Mine Sweeper");
 
         backBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         backBtn.setText("Back");
@@ -199,17 +207,17 @@ public class EasyMode extends javax.swing.JFrame {
             backGroundPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backGroundPnlLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Mine_Sweeper_Lable)
+                .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(backGroundPnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(backGroundPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(boardPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(backGroundPnlLayout.createSequentialGroup()
                         .addComponent(backBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(loseLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(retryBtn)))
                 .addContainerGap())
         );
@@ -217,7 +225,7 @@ public class EasyMode extends javax.swing.JFrame {
             backGroundPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backGroundPnlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(Mine_Sweeper_Lable)
                 .addGap(18, 18, 18)
                 .addGroup(backGroundPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(backGroundPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,10 +294,10 @@ public class EasyMode extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Mine_Sweeper_Lable;
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel backGroundPnl;
     private javax.swing.JPanel boardPnl;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel loseLbl;
     private javax.swing.JButton retryBtn;
     // End of variables declaration//GEN-END:variables
