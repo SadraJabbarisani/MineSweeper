@@ -20,12 +20,13 @@ public class Game {
                 bombNumber = 40;
                 break;
             case Hard:
-                i = j = 60;
+                i = 30;
+                j = 16;
                 bombNumber = 99;
                 break;
             case JustLikeLivingInIran:
-                i = j = 70;
-                bombNumber = 127;
+                i = j = 30;
+                bombNumber = 150;
                 break;
         }
         leftFlagNumber = bombNumber;
